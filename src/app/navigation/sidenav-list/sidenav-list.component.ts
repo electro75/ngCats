@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CatsService } from '../../shared/cats.service';
 
 @Component({
   selector: 'app-sidenav-list',
@@ -7,10 +8,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class SidenavListComponent implements OnInit {
 
+  @ViewChild('catList') catList
+  public catArray = []
 
-  constructor() { }
+  constructor(private catsService: CatsService) { }
 
   ngOnInit() {
+    this.catList.selectedOptions._multiple = false;
+    this.catArray = this.catsService.getCats();
   }
 
 }

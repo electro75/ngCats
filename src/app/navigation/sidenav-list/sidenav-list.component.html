@@ -2,6 +2,11 @@
 
   </div>
 
+  <mat-selection-list #catList>
+    <mat-list-option *ngFor="let cat of catArray">
+      {{cat.name}}
+    </mat-list-option>
+  </mat-selection-list>
 <!-- <mat-nav-list>
   
   <a mat-list-item routerLink="/signup" *ngIf="!(isAuth$ | async)" 
