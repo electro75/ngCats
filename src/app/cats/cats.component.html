@@ -1,6 +1,13 @@
-<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
-  <mat-card>
-    <mat-card-title>Active Cat name</mat-card-title>
+<div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="10px"
+      style="margin-top: 40px;">
+  <ng-template [ngIf]="!activeCat" >
+    <mat-card style="text-align: center">
+      <img mat-card-image  src="assets/img/cat.svg" alt="icon">
+    </mat-card>
+  </ng-template>
+  
+  <ng-template [ngIf]="activeCat">
     
-  </mat-card>
+  </ng-template>
+  
 </div>
