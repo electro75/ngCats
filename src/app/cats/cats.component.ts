@@ -17,8 +17,17 @@ export class CatsComponent implements OnInit {
   ngOnInit() {
     this.catSub = this.catService.activeCatSub.subscribe(cat => {
       this.activeCat = cat;
-      console.log(this.activeCat);
     })
+  }
+
+  incClicks(clicks) {
+    this.activeCat.clicks = clicks + 1;
+    this.catService.updateActiveClicks(clicks + 1);
+  }
+
+  resetClicks() {
+    this.activeCat.clicks = 0;
+    this.catService.updateActiveClicks(0);
   }
 
 }

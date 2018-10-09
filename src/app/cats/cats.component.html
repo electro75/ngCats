@@ -14,8 +14,8 @@
       </mat-card-subtitle>
       <img mat-card-image [src]="activeCat.src" alt="cat image">
       <mat-card-actions>
-        <button mat-raised-button color="primary">Click!</button>
-        <button mat-raised-button color="accent">Reset Clicks</button>
+        <button mat-raised-button color="primary" (click)="incClicks(activeCat.clicks)" >Click!</button>
+        <button mat-raised-button color="accent" (click)="resetClicks()" >Reset Clicks</button>
       </mat-card-actions>
     </mat-card>
   </ng-template>

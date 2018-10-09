@@ -10,10 +10,10 @@ const cats: Cat[] = [
     { id: 0, name: 'Roberto',   src: roberto ,   clicks: 0 },
     { id: 1, name: 'Subhash',   src: subhash ,   clicks: 0 },
     { id: 2, name: 'Luis',      src: luis ,      clicks: 0 },
-    { id: 3 ,name: 'Gabriella', src: gabriella , clicks: 0 }
+    { id: 3, name: 'Gabriella', src: gabriella , clicks: 0 }
 ]
 
-const activeCat : Cat = null;
+let activeCat : Cat = null;
 
 
 
@@ -26,6 +26,12 @@ export class CatsService {
     }
 
     getActiveCat(cat_id) {
+        activeCat = cats[cat_id]
+        cats[activeCat.id] = activeCat;
         this.activeCatSub.next(cats[cat_id]);
+    }
+
+    updateActiveClicks (clicks) {
+        activeCat.clicks = clicks;
     }
 }
