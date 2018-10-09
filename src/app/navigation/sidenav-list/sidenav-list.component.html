@@ -3,7 +3,7 @@
   </div>
 
   <mat-selection-list #catList>
-    <mat-list-option *ngFor="let cat of catArray">
+    <mat-list-option *ngFor="let cat of catArray" (click)="changeCat(cat.id)" >
       {{cat.name}}
     </mat-list-option>
   </mat-selection-list>

@@ -18,4 +18,8 @@ export class SidenavListComponent implements OnInit {
     this.catArray = this.catsService.getCats();
   }
 
+  changeCat(cat_id) {
+    this.catsService.getActiveCat(cat_id);
+  }
+
 }

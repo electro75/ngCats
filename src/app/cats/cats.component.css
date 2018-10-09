@@ -1,7 +1,8 @@
 mat-card {
     width: 400px;
+    text-align: center;
 }
 
 mat-card > img {
-    width: 250px;
+    width: 300px;
 }
