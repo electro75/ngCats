@@ -4,5 +4,9 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 
 
 mat-sidenav {
-    width: 250px;
+    width: 350px;
+}
+
+mat-sidenav-content {
+    background-image: url('../assets/img/wheat.png');
 }
