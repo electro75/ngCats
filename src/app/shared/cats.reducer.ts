@@ -34,7 +34,8 @@ export function catReducer(state = initialState, action) {
             }
     }
 }
-
+// the problem lies here on line 39 where the state is undefined
+// have I made an error while setting it up?
 export const getAllCats     = (state: State) => state.allCats
 
 export const getActiveCat   = (state: State) => state.activeCat 
