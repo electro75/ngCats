@@ -31,8 +31,6 @@ export class SidenavListComponent implements OnInit {
     this.__store.dispatch(new Cats.SetActiveCat(cat_id));
   }
 
-  changeCat(cat_id) {
-    this.catsService.getActiveCat(cat_id);
-  }
+ 
 
 }
