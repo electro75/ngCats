@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CatsService } from '../shared/cats.service';
 
@@ -7,7 +7,7 @@ import { CatsService } from '../shared/cats.service';
   templateUrl: './cats.component.html',
   styleUrls: ['./cats.component.css']
 })
-export class CatsComponent implements OnInit {
+export class CatsComponent implements OnInit, OnDestroy {
 
   private activeCat;
   private catSub: Subscription
@@ -28,6 +28,10 @@ export class CatsComponent implements OnInit {
   resetClicks() {
     this.activeCat.clicks = 0;
     this.catService.updateActiveClicks(0);
+  }
+
+  ngOnDestroy() {
+    this.catSub.unsubscribe();
   }
 
 }
