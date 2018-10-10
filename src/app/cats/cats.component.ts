@@ -1,37 +1,27 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { CatsService } from '../shared/cats.service';
+import { Component, OnInit } from '@angular/core';
+import { Cat } from '../shared/cats.model';
+
+import * as fromRoot from '../app.reducer';
+import * as cat from '../shared/cats.actions';
+import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
+import { getActiveCat } from '../shared/cats.reducer';
+
 
 @Component({
   selector: 'app-cats',
   templateUrl: './cats.component.html',
   styleUrls: ['./cats.component.css']
 })
-export class CatsComponent implements OnInit, OnDestroy {
+export class CatsComponent implements OnInit {
 
-  private activeCat;
-  private catSub: Subscription
+  activeCatSub = new Subscription;
+  public activeCat$
 
-  constructor(private catService: CatsService) { }
+  constructor(private __store: Store<fromRoot.State>) { }
 
   ngOnInit() {
-    this.catSub = this.catService.activeCatSub.subscribe(cat => {
-      this.activeCat = cat;
-    })
-  }
-
-  incClicks(clicks) {
-    this.activeCat.clicks = clicks + 1;
-    this.catService.updateActiveClicks(clicks + 1);
-  }
-
-  resetClicks() {
-    this.activeCat.clicks = 0;
-    this.catService.updateActiveClicks(0);
-  }
-
-  ngOnDestroy() {
-    this.catSub.unsubscribe();
+    this.activeCat$ = this.__store.select(fromRoot.getActiveCat);
   }
 
 }
