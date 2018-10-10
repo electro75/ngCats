@@ -9,10 +9,10 @@ let gabriella = '../../img/img_6.jpg';
 // this is the central store where all the cats are stored.
 
 const cats : Cat[] = [
-    { id: 1, name: 'Roberto', src: roberto , clicks: 0 },
-    { id: 2, name: 'Subhash', src: subhash , clicks: 0 },
-    { id: 3, name: 'Luis', src: luis , clicks: 0 },
-    { id: 4, name: 'Gabriella', src: gabriella , clicks: 0 }
+    { id: 0, name: 'Roberto', src: roberto , clicks: 0 },
+    { id: 1, name: 'Subhash', src: subhash , clicks: 0 },
+    { id: 2, name: 'Luis', src: luis , clicks: 0 },
+    { id: 3, name: 'Gabriella', src: gabriella , clicks: 0 }
 ]
 
 export interface State  {
@@ -22,7 +22,7 @@ export interface State  {
 
 const initialState: State = {
     allCats     : cats,
-    activeCat   :  cats[1]
+    activeCat   :  cats[0]
 }
 
 export function catReducer(state = initialState, action) {
@@ -32,6 +32,9 @@ export function catReducer(state = initialState, action) {
                 ...state,
                 activeCat: cats[action.payload]
             }
+
+        default:
+            return state
     }
 }
 // the problem lies here on line 39 where the state is undefined

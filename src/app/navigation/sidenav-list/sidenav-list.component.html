@@ -3,7 +3,8 @@
   </div>
 
   <mat-selection-list #catList>
-    <mat-list-option *ngFor="let cat of (catArray | async)">
+    <mat-list-option *ngFor="let cat of (catArray | async)" [selected]="cat.id === (activeCat$ | async).id" 
+                      (click)="changeActiveCat(cat.id)">
       {{cat.name}}
     </mat-list-option>
   </mat-selection-list>
