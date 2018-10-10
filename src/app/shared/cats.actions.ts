@@ -1,7 +1,6 @@
 import { Action } from '@ngrx/store';
-import { Cat } from '../shared/cats.model';
 
-export const SET_ACTIVE_CAT    =   '[CAT] Set Active Cat';
+export const SET_ACTIVE_CAT: string    =   '[CAT] Set Active Cat';
 
 
 export class SetActiveCat implements Action { 
@@ -10,4 +9,4 @@ export class SetActiveCat implements Action {
     constructor(public payload: number) { }
 }
 
-export type catActions =    SetActiveCat;
+export type CatActions =    SetActiveCat;

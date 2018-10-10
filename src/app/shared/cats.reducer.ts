@@ -1,5 +1,5 @@
 import { Cat } from '../shared/cats.model';
-import * as catActions from './cats.actions';
+import { CatActions, SET_ACTIVE_CAT } from './cats.actions';
 
 let roberto  =  '../../assets/img/img_3.jpg';
 let subhash = '../../assets/img/img_4.jpg';
@@ -25,9 +25,9 @@ const initialState: State = {
     activeCat   :  cats[0]
 }
 
-export function catReducer(state = initialState, action) {
-    switch(action) {
-        case catActions.SET_ACTIVE_CAT :
+export function catReducer(state = initialState, action: CatActions) {
+    switch(action.type) {
+        case SET_ACTIVE_CAT :
             return {
                 ...state,
                 activeCat: cats[action.payload]
@@ -37,8 +37,6 @@ export function catReducer(state = initialState, action) {
             return state
     }
 }
-// the problem lies here on line 39 where the state is undefined
-// have I made an error while setting it up?
 export const getAllCats     = (state: State) => state.allCats
 
 export const getActiveCat   = (state: State) => state.activeCat 
