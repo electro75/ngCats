@@ -22,7 +22,7 @@ export interface State  {
 
 const initialState: State = {
     allCats     : cats,
-    activeCat   :  cats[0]
+    activeCat   : cats[0]
 }
 
 export function catReducer(state = initialState, action: CatActions) {
