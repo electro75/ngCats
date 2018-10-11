@@ -24,4 +24,12 @@ export class CatsComponent implements OnInit {
     this.activeCat$ = this.__store.select(fromRoot.getActiveCat);
   }
 
+  incClicks() {
+    this.__store.dispatch(new cat.IncCatClicks(this.activeCat$.clicks))
+  }
+
+  resetClicks() {
+
+  }
+
 }

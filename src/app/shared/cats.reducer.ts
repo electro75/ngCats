@@ -1,10 +1,10 @@
 import { Cat } from '../shared/cats.model';
-import { CatActions, SET_ACTIVE_CAT } from './cats.actions';
+import { CatActions, SET_ACTIVE_CAT, INC_CAT_CLICKS } from './cats.actions';
 
 let roberto  =  '../../assets/img/img_3.jpg';
 let subhash = '../../assets/img/img_4.jpg';
 let luis = '../../assets/img/img_5.jpg';
-let gabriella = '../../img/img_6.jpg';
+let gabriella = '../../assets/img/img_6.jpg';
 
 // this is the central store where all the cats are stored.
 
@@ -31,6 +31,12 @@ export function catReducer(state = initialState, action: CatActions) {
             return {
                 ...state,
                 activeCat: cats[action.payload]
+            }
+
+        case INC_CAT_CLICKS :
+            state.activeCat.clicks ++;
+            return {
+                ...state,
             }
 
         default:

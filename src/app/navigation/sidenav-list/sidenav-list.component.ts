@@ -21,7 +21,6 @@ export class SidenavListComponent implements OnInit {
 
   ngOnInit() {
     this.catList.selectedOptions._multiple = false;
-    // this.catArray = this.catsService.getCats();
     this.catArray   = this.__store.select(fromRoot.getAllCats)
 
     this.activeCat$ = this.__store.select(fromRoot.getActiveCat)

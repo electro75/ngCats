@@ -1,3 +1,23 @@
-<p>
-  {{ (activeCat$ | async).name }}
-</p>
+<div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="10px"
+      style="margin-top: 40px;">
+  <ng-template [ngIf]="!(activeCat$ | async)" >
+    <mat-card>
+      <img mat-card-image  src="assets/img/cat.svg" alt="icon">
+    </mat-card>
+  </ng-template>
+  
+  <ng-template [ngIf]="(activeCat$ | async)">
+    <mat-card>
+      <mat-card-title> {{ (activeCat$ | async).name }} </mat-card-title>
+      <mat-card-subtitle>
+        Clicks:  {{(activeCat$ | async).clicks}}
+      </mat-card-subtitle>
+      <img mat-card-image [src]="(activeCat$ | async).src" alt="cat image">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="incClicks()" >Click!</button>
+        <button mat-raised-button color="accent" (click)="resetClicks()" >Reset Clicks</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-template>
+  
+</div>
