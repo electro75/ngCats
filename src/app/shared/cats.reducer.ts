@@ -1,5 +1,5 @@
 import { Cat } from '../shared/cats.model';
-import { CatActions, SET_ACTIVE_CAT, INC_CAT_CLICKS } from './cats.actions';
+import { CatActions, SET_ACTIVE_CAT, INC_CAT_CLICKS, RESET_CAT_CLICKS } from './cats.actions';
 
 let roberto  =  '../../assets/img/img_3.jpg';
 let subhash = '../../assets/img/img_4.jpg';
@@ -37,6 +37,12 @@ export function catReducer(state = initialState, action: CatActions) {
             state.activeCat.clicks ++;
             return {
                 ...state,
+            }
+
+        case RESET_CAT_CLICKS :
+            state.activeCat.clicks = action.payload;
+            return {
+                ...state
             }
 
         default:

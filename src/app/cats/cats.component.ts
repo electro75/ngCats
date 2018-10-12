@@ -25,11 +25,11 @@ export class CatsComponent implements OnInit {
   }
 
   incClicks() {
-    this.__store.dispatch(new cat.IncCatClicks(this.activeCat$.clicks))
+    this.__store.dispatch(new cat.IncCatClicks(this.activeCat$.clicks));
   }
 
   resetClicks() {
-
+    this.__store.dispatch(new cat.ResetCatClicks(0));
   }
 
 }

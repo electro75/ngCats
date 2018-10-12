@@ -1,7 +1,8 @@
 import { Action } from '@ngrx/store';
 
 export const SET_ACTIVE_CAT: string     =   '[CAT] Set Active Cat';
-export const INC_CAT_CLICKS: string     =   '[CAT Increase Cat Clicks';    
+export const INC_CAT_CLICKS: string     =   '[CAT Increase Cat Clicks';
+export const RESET_CAT_CLICKS: string   =   '[CAT Reset Cat Clicks'; 
 
 
 export class SetActiveCat implements Action { 
@@ -16,4 +17,10 @@ export class IncCatClicks implements Action {
     constructor(public payload: number) { }
 }
 
-export type CatActions =    SetActiveCat | IncCatClicks;
+export class ResetCatClicks implements Action {
+    readonly type = RESET_CAT_CLICKS;
+
+    constructor(public payload: number) {  }
+}
+
+export type CatActions =    SetActiveCat | IncCatClicks | ResetCatClicks;
